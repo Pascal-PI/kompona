@@ -1,0 +1,791 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Space+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(40 32% 94%);
+  --foreground: hsl(215 35% 15%);
+  --card: hsl(42 42% 98%);
+  --card-foreground: hsl(215 35% 15%);
+  --popover: hsl(42 42% 98%);
+  --popover-foreground: hsl(215 35% 15%);
+   --primary: hsl(165 37% 36%);
+   --primary-foreground: hsl(42 42% 98%);
+   --secondary: hsl(215 35% 15%);
+  --secondary-foreground: hsl(42 42% 98%);
+  --muted: hsl(39 22% 87%);
+  --muted-foreground: hsl(215 16% 42%);
+   --accent: hsl(43 76% 57%);
+  --accent-foreground: hsl(215 35% 15%);
+  --destructive: hsl(356.3033 90.5579% 54.3137%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(36 23% 80%);
+  --input: hsl(39 22% 87%);
+   --ring: hsl(165 37% 36%);
+  --chart-1: hsl(203.8863 88.2845% 53.1373%);
+  --chart-2: hsl(159.7826 100% 36.0784%);
+  --chart-3: hsl(42.0290 92.8251% 56.2745%);
+  --chart-4: hsl(147.1429 78.5047% 41.9608%);
+  --chart-5: hsl(341.4894 75.2000% 50.9804%);
+  --sidebar: hsl(180 6.6667% 97.0588%);
+  --sidebar-foreground: hsl(210 25% 7.8431%);
+  --sidebar-primary: hsl(203.8863 88.2845% 53.1373%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(211.5789 51.3514% 92.7451%);
+  --sidebar-accent-foreground: hsl(203.8863 88.2845% 53.1373%);
+  --sidebar-border: hsl(205.0000 25.0000% 90.5882%);
+  --sidebar-ring: hsl(202.8169 89.1213% 53.1373%);
+  --font-sans: 'DM Sans', sans-serif;
+   --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+  --radius: 1rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  
+   --chess-primary: hsl(165 37% 36%);
+  --chess-secondary: hsl(40 32% 94%);
+   --chess-accent: hsl(43 76% 57%);
+  --chess-bg: hsl(215 35% 15%);
+   --chess-success: hsl(165 37% 36%);
+}
+
+.dark {
+  --background: hsl(215 35% 15%);
+  --foreground: hsl(200 6.6667% 91.1765%);
+  --card: hsl(228 9.8039% 10%);
+  --card-foreground: hsl(0 0% 85.0980%);
+  --popover: hsl(0 0% 0%);
+  --popover-foreground: hsl(200 6.6667% 91.1765%);
+  --primary: hsl(203.7736 87.6033% 52.5490%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195.0000 15.3846% 94.9020%);
+  --secondary-foreground: hsl(210 25% 7.8431%);
+  --muted: hsl(0 0% 9.4118%);
+  --muted-foreground: hsl(210 3.3898% 46.2745%);
+  --accent: hsl(205.7143 70% 7.8431%);
+  --accent-foreground: hsl(203.7736 87.6033% 52.5490%);
+  --destructive: hsl(356.3033 90.5579% 54.3137%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210 5.2632% 14.9020%);
+  --input: hsl(207.6923 27.6596% 18.4314%);
+  --ring: hsl(202.8169 89.1213% 53.1373%);
+  --chart-1: hsl(203.8863 88.2845% 53.1373%);
+  --chart-2: hsl(159.7826 100% 36.0784%);
+  --chart-3: hsl(42.0290 92.8251% 56.2745%);
+  --chart-4: hsl(147.1429 78.5047% 41.9608%);
+  --chart-5: hsl(341.4894 75.2000% 50.9804%);
+  --sidebar: hsl(228 9.8039% 10%);
+  --sidebar-foreground: hsl(0 0% 85.0980%);
+  --sidebar-primary: hsl(202.8169 89.1213% 53.1373%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(205.7143 70% 7.8431%);
+  --sidebar-accent-foreground: hsl(203.7736 87.6033% 52.5490%);
+  --sidebar-border: hsl(205.7143 15.7895% 26.0784%);
+  --sidebar-ring: hsl(202.8169 89.1213% 53.1373%);
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+  --radius: 1.3rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: hsl(40 32% 94%);
+    color: hsl(215 35% 15%);
+    min-width: 320px;
+  }
+}
+
+/* Chess.com inspired animations */
+@keyframes flip {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { background: var(--chess-success); }
+  50% { background: hsl(82 38% 61%); }
+}
+
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.animate-flip {
+  animation: flip 0.6s ease-in-out;
+}
+
+.animate-pulse-green {
+  animation: pulse-green 1s ease-in-out infinite;
+}
+
+.difficulty-badge {
+  transition: all 0.3s ease;
+}
+
+.difficulty-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.difficulty-badge.selected {
+  box-shadow: 0 0 0 3px var(--chess-success);
+  transform: scale(1.05);
+}
+
+.cover-shell {
+  background:
+    radial-gradient(circle at 12% 8%, hsl(43 86% 61% / .18), transparent 28rem),
+    radial-gradient(circle at 86% 82%, hsl(12 67% 48% / .13), transparent 32rem),
+    hsl(40 32% 94%);
+  color: hsl(215 35% 15%);
+}
+
+.cover-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.11'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  z-index: 10;
+}
+
+.cover-in {
+  animation: cover-in .7s cubic-bezier(.22,1,.36,1) both;
+}
+
+.cover-delay-1 { animation-delay: .08s; }
+.cover-delay-2 { animation-delay: .16s; }
+.cover-delay-3 { animation-delay: .24s; }
+
+@keyframes cover-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.deck-card {
+  box-shadow: 0 18px 35px hsl(215 35% 15% / .18), 0 3px 0 hsl(215 35% 15% / .25);
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
+}
+
+.deck-card:hover {
+  transform: translateY(-10px) rotate(0deg) !important;
+  box-shadow: 0 28px 45px hsl(215 35% 15% / .24), 0 3px 0 hsl(215 35% 15% / .25);
+}
+
+/* PascalMatch application surface: the cover's warm editorial table, carried
+   through every authenticated screen without changing existing behavior. */
+.bg-chess-bg {
+  background:
+    radial-gradient(circle at 8% 0%, hsl(43 86% 61% / .12), transparent 24rem),
+    radial-gradient(circle at 92% 100%, hsl(12 67% 48% / .08), transparent 28rem),
+    hsl(40 32% 94%) !important;
+  color: hsl(215 35% 15%) !important;
+}
+.font-nunito, .font-roboto { font-family: var(--font-sans) !important; }
+.text-white { color: hsl(215 35% 15%) !important; }
+.text-gray-300, .text-gray-400, .text-gray-500 { color: hsl(215 16% 42%) !important; }
+.text-chess-secondary { color: hsl(215 35% 15%) !important; }
+.text-chess-primary { color: hsl(12 67% 48%) !important; }
+.bg-chess-secondary\/20, .bg-chess-secondary\/10 {
+  background-color: hsl(42 42% 98% / .78) !important;
+}
+.bg-chess-primary\/20 { background-color: hsl(12 67% 48% / .10) !important; }
+.bg-chess-accent\/20 { background-color: hsl(43 86% 61% / .18) !important; }
+.bg-chess-success\/20 { background-color: hsl(153 42% 42% / .12) !important; }
+[class*="border-chess-"] { border-color: hsl(36 23% 80%) !important; }
+.rounded-xl { border-radius: 1rem; }
+.shadow-lg { box-shadow: 0 14px 34px hsl(215 35% 15% / .10) !important; }
+.app-shell {
+  min-height: calc(100dvh - 76px);
+  background:
+    linear-gradient(90deg, hsl(215 35% 15% / .025) 1px, transparent 1px),
+    linear-gradient(hsl(215 35% 15% / .025) 1px, transparent 1px),
+    hsl(40 32% 94%);
+  background-size: 28px 28px;
+}
+
+.cover-shell {
+  background:
+    radial-gradient(circle at 82% 22%, rgba(57,124,112,.45), transparent 30rem),
+    linear-gradient(130deg, #12202e, #192f37 56%, #286257) !important;
+  color: var(--kompana-paper) !important;
+}
+.cover-shell::before { opacity: .13; mix-blend-mode: screen; }
+.cover-shell h1,
+.cover-shell h2 { font-family: 'Playfair Display', Georgia, serif !important; }
+.cover-shell h1 { color: var(--kompana-paper) !important; }
+.cover-shell h1 span { color: var(--kompana-gold) !important; }
+.cover-shell section:first-child header > div:first-child > div:first-child {
+  background: var(--kompana-gold) !important;
+  color: var(--kompana-ink) !important;
+  border-radius: 9px 9px 14px 14px !important;
+  box-shadow: inset 0 0 0 2px rgba(25,36,52,.12), 0 4px 0 rgba(0,0,0,.18) !important;
+}
+.cover-shell section:first-child header p:first-child { color: var(--kompana-paper) !important; font-family: 'Playfair Display', Georgia, serif !important; text-transform: none !important; letter-spacing: -.02em !important; font-size: 19px !important; }
+.cover-shell section:first-child header p:last-child,
+.cover-shell .text-\[\#53606a\],
+.cover-shell .text-\[\#68716e\] { color: rgba(255,250,241,.68) !important; }
+.cover-shell .text-\[\#397c70\] { color: var(--kompana-gold) !important; }
+.cover-shell .text-\[\#d85b3f\] { color: var(--kompana-gold) !important; }
+.cover-shell .bg-\[\#d85b3f\] { background: var(--kompana-teal) !important; }
+.cover-shell .bg-\[\#26343d\] { background: var(--kompana-ink) !important; }
+.cover-shell section:last-child {
+  background: rgba(25,36,52,.5) !important;
+}
+.cover-shell section:last-child > div > div:first-child {
+  color: var(--kompana-paper) !important;
+}
+.cover-shell section:last-child .bg-\[\#fff8ec\] { background: var(--kompana-paper) !important; }
+.cover-shell section:last-child .bg-\[\#f7efdf\] { background: #f1eadf !important; }
+.cover-shell input { color: var(--kompana-ink) !important; background: rgba(255,255,255,.82) !important; }
+.cover-shell button[type="submit"] {
+  background: var(--kompana-teal) !important;
+  color: var(--kompana-paper) !important;
+  box-shadow: 0 4px 0 var(--kompana-teal-dark) !important;
+}
+.pascal-panel {
+  background: hsl(42 42% 98% / .86);
+  border: 1px solid hsl(36 23% 80%);
+  box-shadow: 0 12px 32px hsl(215 35% 15% / .08);
+  backdrop-filter: blur(8px);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* Kompana visual system
+   Editorial utility UI: ink/navy chrome, warm paper surfaces, teal felt and
+   one decisive gold action. The existing utility classes remain intact; this
+   layer only changes presentation. */
+:root {
+  --kompana-ink: #192434;
+  --kompana-ink-soft: #243346;
+  --kompana-teal: #397c70;
+  --kompana-teal-dark: #24594f;
+  --kompana-gold: #e5b84c;
+  --kompana-cream: #f5f1eb;
+  --kompana-paper: #fffaf1;
+  --kompana-line: #d8cec0;
+  --kompana-muted: #6d756f;
+  --kompana-felt: #1c544b;
+}
+
+body {
+  background: var(--kompana-cream);
+  color: var(--kompana-ink);
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -.035em;
+}
+
+button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+
+.app-shell {
+  min-height: calc(100dvh - 76px);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(229,184,76,.12), transparent 25rem),
+    radial-gradient(circle at 94% 90%, rgba(57,124,112,.08), transparent 28rem),
+    var(--kompana-cream) !important;
+  color: var(--kompana-ink) !important;
+}
+
+.app-shell > .container,
+.app-shell > div.container {
+  max-width: 1220px;
+}
+
+.pascal-panel,
+.app-shell [class*="bg-chess-secondary\/20"],
+.app-shell [class*="bg-chess-secondary\/10"],
+.app-shell [class*="bg-white\/80"],
+.app-shell [class*="bg-gray-800"],
+.app-shell [class*="bg-gray-700"] {
+  background: var(--kompana-paper) !important;
+  color: var(--kompana-ink) !important;
+  border: 1px solid var(--kompana-line) !important;
+  box-shadow: 0 12px 30px rgba(25,36,52,.07) !important;
+}
+
+.app-shell [class*="border-chess-secondary"],
+.app-shell [class*="border-chess-primary"],
+.app-shell [class*="border-[#769656]"],
+.app-shell [class*="border-gray-"] {
+  border-color: var(--kompana-line) !important;
+}
+
+.app-shell .text-white,
+.app-shell [class*="text-gray-200"],
+.app-shell [class*="text-gray-300"],
+.app-shell [class*="text-gray-400"],
+.app-shell [class*="text-gray-500"],
+.app-shell [class*="text-gray-600"],
+.app-shell [class*="text-[#769656]"] {
+  color: var(--kompana-muted) !important;
+}
+
+.app-shell h1,
+.app-shell h2,
+.app-shell h3,
+.app-shell h4,
+.app-shell .text-chess-secondary,
+.app-shell [class*="text-white"].font-bold {
+  color: var(--kompana-ink) !important;
+}
+
+.app-shell .text-chess-primary,
+.app-shell [class*="text-yellow-"],
+.app-shell [class*="text-orange-"] {
+  color: var(--kompana-gold) !important;
+}
+
+.app-shell .text-chess-success,
+.app-shell [class*="text-green-"] {
+  color: var(--kompana-teal) !important;
+}
+
+.app-shell [class*="bg-chess-primary"],
+.app-shell [class*="bg-[#769656]"],
+.app-shell [class*="bg-green-600"] {
+  background: var(--kompana-teal) !important;
+  color: var(--kompana-paper) !important;
+}
+
+.app-shell [class*="bg-chess-accent"],
+.app-shell [class*="bg-yellow-500"] {
+  background: rgba(229,184,76,.18) !important;
+  color: var(--kompana-ink) !important;
+}
+
+.app-shell [class*="bg-red-"],
+.app-shell [class*="bg-orange-"],
+.app-shell [class*="bg-purple-"],
+.app-shell [class*="bg-blue-"] {
+  background: rgba(57,124,112,.10) !important;
+  color: var(--kompana-ink) !important;
+}
+
+.app-shell [class*="bg-gradient-"] {
+  background: var(--kompana-paper) !important;
+}
+
+.app-shell input,
+.app-shell select,
+.app-shell textarea {
+  background: rgba(255,255,255,.72) !important;
+  color: var(--kompana-ink) !important;
+  border-color: var(--kompana-line) !important;
+}
+
+.app-shell input::placeholder { color: #8b9089 !important; }
+
+/* Shared page rhythm and editorial headings */
+.app-shell .container {
+  padding-top: clamp(1.5rem, 4vw, 3.5rem);
+  padding-bottom: 4rem;
+}
+
+.app-shell .container > header h1,
+.app-shell .container > h1,
+.app-shell .container h1.text-3xl {
+  font-size: clamp(2.35rem, 5vw, 3.5rem);
+  line-height: .98;
+  color: var(--kompana-ink) !important;
+}
+
+.app-shell .container > header h1 svg,
+.app-shell .container > h1 svg {
+  color: var(--kompana-teal) !important;
+  width: 2rem;
+  height: 2rem;
+}
+
+.app-shell [role="tablist"] {
+  background: rgba(25,36,52,.08) !important;
+  border: 1px solid var(--kompana-line);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.app-shell [role="tab"] {
+  color: var(--kompana-muted) !important;
+  border-radius: 10px;
+}
+
+.app-shell [role="tab"][data-state="active"] {
+  background: var(--kompana-teal) !important;
+  color: var(--kompana-paper) !important;
+}
+
+.app-shell [data-radix-collection-item],
+.app-shell .bg-primary {
+  background: var(--kompana-teal);
+}
+
+/* Authenticated navy header */
+header.sticky {
+  min-height: 78px;
+  background: var(--kompana-ink) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 4px 20px rgba(25,36,52,.15) !important;
+}
+
+header.sticky a { color: var(--kompana-paper); }
+header.sticky a > div:first-child {
+  background: var(--kompana-gold) !important;
+  color: var(--kompana-ink) !important;
+  border-radius: 9px 9px 14px 14px !important;
+  box-shadow: inset 0 0 0 2px rgba(25,36,52,.12), 0 3px 0 rgba(0,0,0,.16) !important;
+}
+header.sticky a > div:first-child svg { color: var(--kompana-ink) !important; }
+header.sticky a p:first-child {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 19px !important;
+  letter-spacing: -.02em !important;
+  text-transform: none !important;
+}
+header.sticky a p:last-child { color: rgba(255,250,241,.62) !important; }
+header.sticky nav a > button {
+  border-radius: 14px !important;
+  min-height: 42px;
+  font-weight: 600;
+}
+header.sticky nav a:first-child > button { background: rgba(255,255,255,.07) !important; }
+header.sticky nav a:nth-child(2) > button {
+  background: rgba(255,255,255,.07) !important;
+  color: var(--kompana-paper) !important;
+}
+header.sticky nav a:nth-child(3) > button {
+  background: var(--kompana-gold) !important;
+  color: var(--kompana-ink) !important;
+}
+header.sticky nav button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+header.sticky [data-radix-dropdown-menu-trigger] {
+  background: rgba(255,255,255,.07) !important;
+  border: 1px solid transparent !important;
+  color: var(--kompana-paper) !important;
+  border-radius: 14px !important;
+}
+header.sticky [data-radix-dropdown-menu-trigger][data-state="open"] {
+  border-color: var(--kompana-gold) !important;
+}
+header.sticky [data-radix-dropdown-menu-trigger] [data-slot="avatar-fallback"],
+header.sticky [data-radix-dropdown-menu-trigger] .rounded-full {
+  background: var(--kompana-teal) !important;
+  color: var(--kompana-paper) !important;
+}
+[data-radix-popper-content-wrapper] [role="menu"] {
+  background: var(--kompana-paper) !important;
+  color: var(--kompana-ink) !important;
+  border: 1px solid var(--kompana-line) !important;
+  border-radius: 18px !important;
+  padding: 8px !important;
+  box-shadow: 0 24px 55px rgba(25,36,52,.2) !important;
+}
+[data-radix-popper-content-wrapper] [role="menuitem"] {
+  border-radius: 10px !important;
+  min-height: 38px;
+}
+[data-radix-popper-content-wrapper] [role="menuitem"]:hover {
+  background: rgba(57,124,112,.1) !important;
+  color: var(--kompana-teal-dark) !important;
+}
+
+/* Page-specific game composition */
+.game-page .game-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.35rem;
+}
+.game-page .game-heading h1 {
+  margin: 0;
+  font: 700 clamp(2.4rem,5vw,3.7rem)/.98 'Playfair Display', Georgia, serif;
+  color: var(--kompana-ink) !important;
+}
+.game-page .game-eyebrow {
+  display: block;
+  margin-bottom: .45rem;
+  color: var(--kompana-teal) !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.game-page .game-rating {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 0 12px;
+  min-width: 126px;
+  padding: 13px 17px;
+  border-radius: 19px;
+  background: var(--kompana-ink);
+  color: var(--kompana-paper);
+}
+.game-page .game-rating small {
+  grid-column: 1 / -1;
+  color: rgba(255,250,241,.58);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.game-page .game-rating strong {
+  font: 700 26px 'Playfair Display', Georgia, serif;
+}
+.game-page .game-rating span {
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: var(--kompana-gold);
+  color: var(--kompana-ink);
+  font-size: 10px;
+  font-weight: 700;
+}
+.game-page .game-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 100px)) minmax(180px, 1fr);
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+.game-page .game-stat {
+  display: grid;
+  gap: 2px;
+  padding: 11px 15px;
+  background: var(--kompana-paper);
+  border: 1px solid var(--kompana-line);
+  border-radius: 15px;
+}
+.game-page .game-stat strong { font-size: 20px; color: var(--kompana-ink); }
+.game-page .game-stat span { font-size: 10px; color: var(--kompana-muted); }
+.game-page .game-stat-progress {
+  padding: 11px 15px;
+  background: var(--kompana-paper);
+  border: 1px solid var(--kompana-line);
+  border-radius: 15px;
+}
+.game-page .game-stat-progress label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--kompana-muted);
+  font-size: 10px;
+}
+.game-page .game-stat-progress i {
+  display: block;
+  height: 7px;
+  margin-top: 6px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--kompana-teal), var(--kompana-gold));
+}
+.game-page .game-stat-progress small { color: var(--kompana-muted); font-size: 10px; }
+.game-page .game-layout { gap: 20px; }
+.game-page .game-sidebar { gap: 13px; }
+.game-page .game-main { min-width: 0; }
+.game-page .game-board-shell {
+  padding: clamp(15px, 3vw, 30px);
+  border-radius: 26px;
+  background: linear-gradient(145deg, #173f3a, #286257);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.13), 0 24px 50px rgba(25,36,52,.15);
+}
+
+/* Dense utility cards and interaction controls */
+.app-shell .rounded-lg,
+.app-shell .rounded-xl,
+.app-shell .rounded-2xl { border-radius: 15px; }
+.app-shell button[class*="bg-chess-primary"],
+.app-shell button[class*="bg-chess-success"],
+.app-shell button[class*="bg-[#769656]"] {
+  border: 0;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.app-shell .pascal-panel h3 { font-size: 15px; letter-spacing: -.01em; }
+.app-shell .pascal-panel h3:has(+ *) { color: var(--kompana-ink) !important; }
+.app-shell [class*="animate-spin"] { border-color: var(--kompana-teal) !important; border-top-color: transparent !important; }
+
+.store-page .store-theme-card {
+  overflow: hidden;
+  padding: 0 !important;
+}
+.store-page .store-art {
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.store-page .store-art::before,
+.store-page .store-art::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 170px;
+  border: 1px solid rgba(255,250,241,.46);
+  border-radius: 16px;
+  transform: rotate(24deg);
+}
+.store-page .store-art::after { transform: rotate(-24deg); }
+.store-page .store-art span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 76px;
+  border: 2px solid rgba(229,184,76,.85);
+  border-radius: 11px;
+  color: var(--kompana-gold);
+  font: 700 34px 'Playfair Display', Georgia, serif;
+  background: rgba(25,36,52,.18);
+}
+.store-page .theme-art-saints { background: linear-gradient(135deg, #173f46, #397c70); }
+.store-page .theme-art-animals { background: linear-gradient(135deg, #274e45, #829c65); }
+.store-page .theme-art-barbie { background: linear-gradient(135deg, #5e345b, #c07c9b); }
+.store-page .theme-art-puppies { background: linear-gradient(135deg, #a97431, #e5b84c); }
+.store-page .store-theme-card > .p-6,
+.store-page .store-theme-card > [class*="p-"] { position: relative; }
+.store-page .store-theme-card .text-\[\#769656\] { color: var(--kompana-ink) !important; }
+.store-page .store-theme-card .border-\[\#769656\] { border-color: var(--kompana-line) !important; }
+
+@media (max-width: 767px) {
+  header.sticky { padding-inline: 14px !important; }
+  header.sticky a p:last-child,
+  header.sticky nav a:first-child span,
+  header.sticky nav a:nth-child(3) span { display: none; }
+  header.sticky nav { gap: 4px !important; }
+  header.sticky nav a > button { padding-inline: 10px !important; }
+  header.sticky [data-radix-dropdown-menu-trigger] { padding-inline: 8px !important; }
+  .game-page .game-heading { align-items: start; flex-direction: column; }
+  .game-page .game-rating { align-self: stretch; max-width: 150px; }
+  .game-page .game-stat-strip { grid-template-columns: repeat(3, 1fr); }
+  .game-page .game-stat-progress { grid-column: 1 / -1; }
+}
+
+/* Persistent dark mode, toggled from the authenticated header. */
+html.dark {
+  color-scheme: dark;
+  --background: hsl(215 30% 10%);
+  --foreground: hsl(40 35% 93%);
+  --card: hsl(214 25% 15%);
+  --card-foreground: hsl(40 35% 93%);
+  --popover: hsl(214 25% 15%);
+  --popover-foreground: hsl(40 35% 93%);
+  --muted: hsl(214 18% 21%);
+  --muted-foreground: hsl(40 12% 68%);
+  --border: hsl(213 17% 27%);
+  --input: hsl(214 22% 18%);
+}
+
+html.dark body,
+html.dark .kompana-app {
+  background: #101923;
+  color: #f5f1eb;
+}
+
+html.dark .app-shell {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(229,184,76,.08), transparent 25rem),
+    radial-gradient(circle at 94% 90%, rgba(57,124,112,.12), transparent 28rem),
+    #101923 !important;
+  color: #f5f1eb !important;
+}
+
+html.dark .pascal-panel,
+html.dark .app-shell [class*="bg-chess-secondary\/20"],
+html.dark .app-shell [class*="bg-chess-secondary\/10"],
+html.dark .app-shell [class*="bg-white\/80"],
+html.dark .app-shell [class*="bg-gray-800"],
+html.dark .app-shell [class*="bg-gray-700"],
+html.dark .game-page .game-stat,
+html.dark .game-page .game-stat-progress {
+  background: #182433 !important;
+  color: #f5f1eb !important;
+  border-color: #344353 !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18) !important;
+}
+
+html.dark .app-shell h1,
+html.dark .app-shell h2,
+html.dark .app-shell h3,
+html.dark .app-shell h4,
+html.dark .app-shell .text-chess-secondary,
+html.dark .app-shell [class*="text-white"].font-bold,
+html.dark .game-page .game-heading h1,
+html.dark .game-page .game-stat strong {
+  color: #fffaf1 !important;
+}
+
+html.dark .app-shell .text-white,
+html.dark .app-shell [class*="text-gray-"],
+html.dark .game-page .game-stat span,
+html.dark .game-page .game-stat-progress label,
+html.dark .game-page .game-stat-progress small {
+  color: #aeb7bd !important;
+}
+
+html.dark .app-shell input,
+html.dark .app-shell select,
+html.dark .app-shell textarea {
+  background: #111c28 !important;
+  color: #fffaf1 !important;
+  border-color: #3a4959 !important;
+}
+
+html.dark [data-radix-popper-content-wrapper] [role="menu"] {
+  background: #182433 !important;
+  color: #fffaf1 !important;
+  border-color: #344353 !important;
+}
+
+html.dark [data-radix-popper-content-wrapper] [role="menuitem"]:hover {
+  background: rgba(57,124,112,.22) !important;
+  color: #fffaf1 !important;
+}
